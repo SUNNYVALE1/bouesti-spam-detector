@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Overview Presentation</title>
+    <style>
+        :root {
+            /* Type scale */
+            --title: 64px;
+            --subtitle: 44px;
+            --body: 34px;
+            --small: 28px;
+
+            /* Spacing */
+            --pad-top: 100px;
+            --pad-bottom: 80px;
+            --pad-x: 100px;
+            --title-gap: 52px;
+            --item-gap: 28px;
+
+            /* Colors - Neutral/Cool Corporate Default */
+            --bg-color: #f8f9fa;
+            --text-main: #212529;
+            --text-muted: #6c757d;
+            --accent-primary: #0d6efd;
+            --accent-secondary: #0a58ca;
+            --bg-alt: #ffffff;
+
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Slide Canvas Definition */
+        .presentation {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .slide {
+            width: 1920px;
+            height: 1080px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: var(--pad-top) var(--pad-x) var(--pad-bottom) var(--pad-x);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typographic elements */
+        h1, h2, h3, p, ul, li {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        h1.deck-title {
+            font-size: 96px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--title-gap);
+            letter-spacing: -0.02em;
+        }
+
+        h2.slide-title {
+            font-size: var(--title);
+            font-weight: 600;
+            margin-bottom: var(--title-gap);
+            color: var(--accent-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .subtitle {
+            font-size: var(--subtitle);
+            color: var(--text-muted);
+            margin-bottom: var(--item-gap);
+        }
+
+        p, li {
+            font-size: var(--body);
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        /* Layout structures */
+        .content-area {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--item-gap);
+        }
+
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            flex-grow: 1;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            flex-grow: 1;
+            align-content: start;
+        }
+
+        /* Common components */
+        ul {
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--item-gap);
+        }
+
+        .placeholder-box {
+            background-color: #e9ecef;
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-family: monospace;
+            font-size: var(--small);
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-alt);
+            padding: 60px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--accent-primary);
+        }
+
+        .stat-value {
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+        }
+
+        .stat-label {
+            font-size: var(--small);
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Slide variants */
+        .slide.title-slide {
+            justify-content: center;
+            align-items: flex-start;
+            padding-left: 200px;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e9ecef 100%);
+        }
+
+        .slide.section-slide {
+            background-color: var(--accent-primary);
+            color: white;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide.section-slide .slide-title {
+            color: white;
+            font-size: 112px;
+            margin-bottom: 0;
+        }
+
+        .slide.section-slide .section-number {
+            font-size: var(--body);
+            font-weight: bold;
+            opacity: 0.8;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        /* Footer details */
+        .footer {
+            position: absolute;
+            bottom: var(--pad-bottom);
+            left: var(--pad-x);
+            right: var(--pad-x);
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Responsive scaling for previewing */
+        @media (max-width: 2000px) {
+            .presentation {
+                transform-origin: top center;
+                transform: scale(0.7);
+                padding: 0;
+            }
+        }
+        @media (max-width: 1400px) {
+            .presentation { transform: scale(0.5); }
+        }
+        @media (max-width: 1000px) {
+            .presentation { transform: scale(0.4); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="presentation">
+    <!-- Slide 1: Title -->
+    <section class="slide title-slide">
+        <h1 class="deck-title">Website Overview</h1>
+        <p class="subtitle">Platform architecture, features, and roadmap</p>
+
+        <div style="margin-top: 100px;">
+            <p style="font-size: var(--small); color: var(--text-muted); font-weight: 600;">August 2026</p>
+        </div>
+
+        <div class="footer">
+            <span>Website Overview</span>
+            <span>1</span>
+        </div>
+    </section>
+
+    <!-- Slide 2: Exec Summary -->
+    <section class="slide">
+        <h2 class="slide-title">Our platform connects users with resources</h2>
+        <div class="split-layout">
+            <div class="content-area" style="justify-content: center;">
+                <p>The website serves as the primary hub for our digital presence, built to deliver speed, accessibility, and conversion.</p>
+                <ul>
+                    <li>Modern, responsive front-end architecture</li>
+                    <li>Integrated content management</li>
+                    <li>Secure user authentication and portals</li>
+                    <li>Optimized for global performance</li>
+                </ul>
+            </div>
+            <div>
+                <div class="placeholder-box">
+                    [Diagram: High-level site architecture]
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Website Overview</span>
+            <span>2</span>
+        </div>
+    </section>
+
+    <!-- Slide 3: Section Divider -->
+    <section class="slide section-slide">
+        <div class="section-number">Section 01</div>
+        <h2 class="slide-title">Core Features</h2>
+    </section>
+
+    <!-- Slide 4: Key capabilities -->
+    <section class="slide">
+        <h2 class="slide-title">Capabilities drive user engagement</h2>
+        <div class="grid-layout">
+            <div class="stat-card">
+                <div class="stat-value">Search</div>
+                <p>Elastic-powered global search returning instant results across documentation, products, and support.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Portal</div>
+                <p>Authenticated dashboard where users manage subscriptions, preferences, and view history.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">Commerce</div>
+                <p>Frictionless checkout flow with regional pricing and multi-currency support built in.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Website Overview</span>
+            <span>4</span>
+        </div>
+    </section>
+
+    <!-- Slide 5: Performance metrics -->
+    <section class="slide">
+        <h2 class="slide-title">Performance exceeds industry benchmarks</h2>
+        <div class="split-layout">
+            <div>
+                <div class="placeholder-box" style="height: 600px;">
+                    [Chart: Core Web Vitals performance over last 6 months]
+                </div>
+            </div>
+            <div class="content-area" style="justify-content: center; gap: 60px;">
+                <div>
+                    <h3 style="font-size: 56px; font-weight: 700; color: var(--accent-primary);">0.8s</h3>
+                    <p style="font-size: var(--small); color: var(--text-muted); text-transform: uppercase;">Average page load</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 56px; font-weight: 700; color: var(--accent-primary);">99.99%</h3>
+                    <p style="font-size: var(--small); color: var(--text-muted); text-transform: uppercase;">Uptime SLA</p>
+                </div>
+                <div>
+                    <h3 style="font-size: 56px; font-weight: 700; color: var(--accent-primary);">100</h3>
+                    <p style="font-size: var(--small); color: var(--text-muted); text-transform: uppercase;">Lighthouse accessibility score</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Website Overview</span>
+            <span>5</span>
+        </div>
+    </section>
+
+    <!-- Slide 6: Section Divider -->
+    <section class="slide section-slide">
+        <div class="section-number">Section 02</div>
+        <h2 class="slide-title">Technical Foundation</h2>
+    </section>
+
+    <!-- Slide 7: Tech stack -->
+    <section class="slide">
+        <h2 class="slide-title">Built on a modern technology stack</h2>
+        <div class="content-area">
+            <p style="max-width: 1200px;">Our infrastructure choices prioritize developer velocity, edge delivery, and seamless scalability without managing servers.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px;">
+                <div style="background: var(--bg-alt); padding: 40px; border-radius: 8px; border-left: 4px solid var(--text-main);">
+                    <h3 style="font-size: var(--subtitle); font-weight: 600; margin-bottom: 20px;">Frontend</h3>
+                    <p>React/Next.js leveraging server components. Statically generated where possible, edge-rendered when dynamic.</p>
+                </div>
+                <div style="background: var(--bg-alt); padding: 40px; border-radius: 8px; border-left: 4px solid var(--text-main);">
+                    <h3 style="font-size: var(--subtitle); font-weight: 600; margin-bottom: 20px;">Backend & Data</h3>
+                    <p>Serverless API routes connected to a globally distributed Postgres database, cached via Redis.</p>
+                </div>
+                <div style="background: var(--bg-alt); padding: 40px; border-radius: 8px; border-left: 4px solid var(--text-main);">
+                    <h3 style="font-size: var(--subtitle); font-weight: 600; margin-bottom: 20px;">Content</h3>
+                    <p>Headless CMS enabling marketing teams to deploy changes independently of engineering cycles.</p>
+                </div>
+                <div style="background: var(--bg-alt); padding: 40px; border-radius: 8px; border-left: 4px solid var(--text-main);">
+                    <h3 style="font-size: var(--subtitle); font-weight: 600; margin-bottom: 20px;">Hosting</h3>
+                    <p>Deployed to edge networks. Zero-downtime deployments with instant rollbacks and preview URLs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>Website Overview</span>
+            <span>7</span>
+        </div>
+    </section>
+
+    <!-- Slide 8: Next Steps -->
+    <section class="slide title-slide">
+        <h2 class="deck-title" style="font-size: 72px;">Upcoming roadmap</h2>
+        <ul style="max-width: 1000px; margin-top: 40px;">
+            <li><strong>Q3:</strong> Launch personalized dashboard experience</li>
+            <li><strong>Q4:</strong> Implement AI-powered search enhancements</li>
+            <li><strong>Q1:</strong> Expand localization to 5 new regions</li>
+        </ul>
+        <div class="footer">
+            <span>Website Overview</span>
+            <span>8</span>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

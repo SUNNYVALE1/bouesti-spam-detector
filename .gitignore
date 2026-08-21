@@ -1,0 +1,8 @@
+﻿enron_spam_data.csv
+node_modules/
+.DS_Store
+__pycache__/
+*.zip
+model_weights.json
+.claude/
+.next/
