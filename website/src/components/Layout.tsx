@@ -160,7 +160,7 @@ export function Footer() {
               Academic Credits
             </h4>
             <p className="text-xs text-slate-300 space-y-1 font-medium">
-              <span className="block text-amber-400 font-bold">Supervised by: Mrs. Ariyo</span>
+              <span className="block text-amber-400 font-bold">Supervised by: Ariyo Opeyemi Jumoke</span>
               <span className="block">Dept. of Computing & Information Science</span>
               <span className="block text-slate-400">BOUESTI, Ikere-Ekiti, Ekiti State</span>
             </p>

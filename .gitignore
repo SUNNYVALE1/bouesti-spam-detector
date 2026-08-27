@@ -1,8 +1,41 @@
-﻿enron_spam_data.csv
+# Dataset (too large for GitHub)
+enron_spam_data.csv
+
+# Dependencies
 node_modules/
 .DS_Store
+
+# Python cache
 __pycache__/
+*.pyc
+
+# ZIP files (too large)
 *.zip
+
+# Model weights (large binary)
 model_weights.json
+
+# Internal AI/Claude files
 .claude/
+claude setup/
+
+# Next.js build output
 .next/
+
+# Environment variables — NEVER commit these (contains API keys)
+.env
+.env.local
+.env.*.local
+
+# Internal planning and agent docs (not for public repo)
+AGENTS.md
+IMPLEMENTATION_PLAN.md
+MEMORY.md
+website/AGENTS.md
+website/CLAUDE.md
+
+# Design files
+opendesign/
+
+# Trained model binaries (large)
+spam_detection_system/spam_detection_system/models/

@@ -97,12 +97,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="space-y-1 bg-slate-950 p-4 rounded-xl border border-slate-800">
-          <span className="text-slate-500 text-xs font-semibold uppercase">Web Development</span>
-          <div className="text-white font-bold text-base">SUNNYTECH ALL-IN-ONE SOLUTION</div>
-          <div className="text-xs text-slate-400">Website Design, Development &amp; Deployment</div>
-        </div>
-
         <div className="text-xs text-slate-400 text-center italic border-t border-slate-800/60 pt-4">
           Submitted in Partial Fulfillment for the Award of the Degree of Bachelor of Science (B.Sc) in Computer Science.
         </div>

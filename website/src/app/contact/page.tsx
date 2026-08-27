@@ -6,15 +6,13 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact | BOUESTI Spam Email Detection System',
-  description: 'Contact the BOUESTI spam detection research team. Esan Oluwaferanmi Elizabeth (5029), Daramola Micheal Olaniyi (5022), and Ajimo Samson Oluwasanmi (4955). Department of Computing and Information Science, Bamidele Olumilua University, Ikere-Ekiti.',
+  description: 'Contact the BOUESTI spam detection research team. Esan Oluwaferanmi Elizabeth (5029), Daramola Micheal Olaniyi (5022), and Ajimo Samson Oluwasanmi (4955). Supervisor: Ariyo Opeyemi Jumoke. Department of Computing and Information Science, Bamidele Olumilua University, Ikere-Ekiti.',
   openGraph: {
     title: 'Contact | BOUESTI Spam Email Detection Team',
-    description: 'Reach out to the student research team behind the BOUESTI intelligent spam email detection system.',
+    description: 'Reach out to the student research team behind the BOUESTI intelligent spam email detection system. Supervised by Ariyo Opeyemi Jumoke.',
     type: 'website',
   },
 };
-
-
 
 const STUDENTS = [
   { name: 'Esan Oluwaferanmi Elizabeth', matric: '5029' },
@@ -36,11 +34,12 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Column: Team Cards & Institutional Info */}
         <div className="space-y-8">
+
           {/* Department Card */}
           <div className="bg-slate-900 border border-slate-800 rounded-3xl p-4 sm:p-6 space-y-4 shadow-xl">
             <div className="flex items-center gap-3 border-b border-slate-800 pb-3">
               <Building className="w-6 h-6 text-emerald-400" />
-              <h3 className="text-lg font-bold text-white">Department & Institution</h3>
+              <h3 className="text-lg font-bold text-white">Department &amp; Institution</h3>
             </div>
             <div className="space-y-2 text-sm text-slate-300">
               <p className="font-semibold text-white">Department of Computing and Information Science</p>
@@ -49,7 +48,7 @@ export default function ContactPage() {
               </p>
               <div className="pt-2 flex items-center gap-2 text-xs text-emerald-400">
                 <GraduationCap className="w-4 h-4 text-amber-400" />
-                <span>Supervised by: <strong>Mrs. Ariyo</strong></span>
+                <span>Supervised by: <strong>Ariyo Opeyemi Jumoke</strong></span>
               </div>
             </div>
           </div>
@@ -65,7 +64,7 @@ export default function ContactPage() {
                 <div key={idx} className="bg-slate-950 border border-slate-800 p-4 rounded-xl flex items-center justify-between">
                   <div>
                     <div className="font-bold text-white text-sm">{student.name}</div>
-                    <div className="text-xs text-slate-400">Research & Development</div>
+                    <div className="text-xs text-slate-400">Research &amp; Development</div>
                   </div>
                   <div className="bg-emerald-950 border border-emerald-800 text-amber-400 text-xs font-mono px-2.5 py-1 rounded-md font-bold">
                     Matric: {student.matric}
@@ -74,6 +73,7 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
+
         </div>
 
         {/* Right Column: Contact Form */}
@@ -82,4 +82,3 @@ export default function ContactPage() {
     </PageTransition>
   );
 }
-
