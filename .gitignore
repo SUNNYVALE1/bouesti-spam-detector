@@ -1,6 +1,10 @@
 # Dataset (too large for GitHub)
 enron_spam_data.csv
 
+# PowerPoint / internal presentations
+Website_Overview.pptx
+*.pptx
+
 # Dependencies
 node_modules/
 .DS_Store
