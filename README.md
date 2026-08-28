@@ -30,7 +30,6 @@ An intelligent spam email detection system built using Machine Learning and a Ne
 3. **Ajimo Samson Oluwasanmi** (Matric: 4955)
 
 **Supervisor:** Ariyo Opeyemi Jumoke
-**Web Engineering Credit:** Developed by SUNNYTECH ALL-IN-ONE SOLUTION
 
 ## Running Locally
 
