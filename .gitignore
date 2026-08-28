@@ -5,6 +5,20 @@ enron_spam_data.csv
 Website_Overview.pptx
 *.pptx
 
+# Internal documentation
+TREE_VIEW.md
+CHANGELOG.md
+
+# Personal images
+website/images/352785019_560054259407486_5813364593415631354_n.jpg
+
+# Default Next.js placeholder SVGs (not used in project)
+website/public/file.svg
+website/public/globe.svg
+website/public/next.svg
+website/public/vercel.svg
+website/public/window.svg
+
 # Dependencies
 node_modules/
 .DS_Store
